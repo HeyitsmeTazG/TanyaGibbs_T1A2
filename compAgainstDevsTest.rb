@@ -1,6 +1,6 @@
 require "test/unit"
-require_relative 'computers_against_developers'
+require './compAgainstDevsTest.rb'
 
-class Comp_against_devsTest < Test::Unit::TestCase
+class compAgainstDevsTest < Test::Unit::TestCase
 
 end

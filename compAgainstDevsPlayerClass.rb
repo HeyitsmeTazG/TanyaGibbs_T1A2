@@ -6,12 +6,16 @@ class Player
         @name = name
         @cards = []
     end
+
+    
+end
+
+class HumanPlayer < Player
+
+end
+
+class ComputerPlayer < Player
+
 end
 
 
-players = [
-    Player.new("User"),
-    Player.new("Steph"),
-    Player.new("Glen"),
-    Player.new("Matt")
-]

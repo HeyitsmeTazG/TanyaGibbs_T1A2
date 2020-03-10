@@ -1,16 +1,32 @@
+require_relative 'compAgainstDevsCardClass'
+
 class Game 
     attr_accessor :answer_cards
     attr_reader   :question_cards, :hand_size, :players
 
     def initialize(question_cards, answer_cards, players, hand_size)
-        if question_cards == nil || answer_cards == nil
-            raise "Neither deck should be empty"
-        end
-
+       
         @question_cards = question_cards
         @answer_cards = answer_cards
         @hand_size = hand_size
         @players = players
+
+        if question_cards == nil || answer_cards == nil
+            raise "Neither deck should be empty"
+        end 
+
+    end
+
+    def deal_hand
+        dealt = 0
+        while dealt < hand_size 
+            for player in players
+               player.cards.push(deal_answer_card)
+            end 
+            dealt = dealt + 1
+        end
+        return players
+        # puts players
     end
 
     def deal_card(cards)
@@ -29,26 +45,11 @@ class Game
        return deal_card(answer_cards)
     end
 
-    def deal_hand(hand_size, players)
-        dealt = 0
-        while dealt < hand_size 
-            for player in players
-               player.cards.push(deal_answer_card)
-            end 
-            dealt = dealt + 1
-        end
-        return players
-        # puts players
-    end
-
-
     def play_round
         # Show question card
         # Display hand
         # Choose answer card
-        # Winner of round is generated
-
-        
+        # Winner of round is generated        
     end
 
     def start
@@ -60,11 +61,11 @@ class Game
 
         # Once there is a winner, we exit. 
     end
+
 end
 
 
 
-game = Game.new(question_cards, answer_cards, players, 2)
 # game.start()
 
 
@@ -89,3 +90,5 @@ game = Game.new(question_cards, answer_cards, players, 2)
 # CSV FILE:! string one, string two, "After ten years working as\,  a developer I am addicted to ____________.", 
 
 # ['string one', 'string two','string one']
+
+
