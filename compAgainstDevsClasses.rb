@@ -2,8 +2,7 @@ class Card
     attr_reader :value
     
     def initialize(answer_card)
-    @answer_card = answer_card
-
+        @answer_card = answer_card
     end
 end
 
@@ -13,7 +12,7 @@ class Game
 
     def initialize(question_cards, answer_cards, players, hand_size)
         if question_cards == nil || answer_cards == nil
-            raise "Both decks must not be empty"
+            raise "Neither deck should be empty"
         end
 
         @question_cards = question_cards
@@ -40,24 +39,24 @@ class Game
 
     def deal_hand(hand_size, players)
         dealt = 0
-        while dealt != players.length() 
+        while dealt < hand_size 
             for player in players
-                count = player.cards.length()
-                if count >= hand_size
-                    dealt = dealt + 1
-                    next
-                end
-                player.cards.push(deal_answer_card)
+               player.cards.push(deal_answer_card)
             end 
+            dealt = dealt + 1
         end
         return players
+        puts players
     end
 
+
     def play_round
-        # Play a round and pick the winner
-        # 1. Pick a question card
-        # let everyone pick answer 
-        # select a winner
+        # Show question card
+        # Display hand
+        # Choose answer card
+        # Winner of round is generated
+
+        
     end
 
     def start
@@ -143,7 +142,7 @@ players = [
 ]
 
 game = Game.new(question_cards, answer_cards, players, 2)
-game.start()
+# game.start()
 
 
 # class Answer_card
@@ -163,3 +162,7 @@ game.start()
 
 # answer1 = Answer_card.new("Browsing StackOverflow for hours without actually looking for a solution")
 # puts answer1.answer_card
+
+# CSV FILE:! string one, string two, "After ten years working as\,  a developer I am addicted to ____________.", 
+
+# ['string one', 'string two','string one']
