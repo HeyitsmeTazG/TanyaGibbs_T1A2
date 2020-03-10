@@ -1,5 +1,3 @@
-
-
 class Game 
     attr_accessor :answer_cards
     attr_reader   :question_cards, :hand_size, :players
