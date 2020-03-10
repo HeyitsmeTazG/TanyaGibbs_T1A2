@@ -1,8 +1,8 @@
 class Card
     attr_reader :value
     
-    def initialize(card)
-        @card = card
+    def initialize(card_text)
+        @value = card_text
     end
 end
 

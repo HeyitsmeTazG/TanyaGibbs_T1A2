@@ -26,7 +26,15 @@ class Game
             dealt = dealt + 1
         end
         return players
-        # puts players
+        
+    end
+
+    def show_hand(player_ID)
+        card_ID = 0
+        while card_ID < hand_size 
+            puts players[player_ID].cards[card_ID].value 
+            card_ID = card_ID + 1
+        end
     end
 
     def deal_card(cards)

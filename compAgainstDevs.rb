@@ -66,10 +66,10 @@ players = [
     Player.new("Matt")
 ]
 
-puts game = Game.new(question_cards, answer_cards, players, 7)
+game = Game.new(question_cards, answer_cards, players, 7)
 game.deal_hand()
-
-
+game.show_hand(0)
+puts game
  
 # def gets_player_input(options)
 #   loop do
