@@ -68,8 +68,15 @@ players = [
     Player.new("Matt")
 ]
 
-# puts a = Artii::Base.new :font => 'slant'
-# puts a.asciify('Computers Against Developers!')
+
+a = Artii::Base.new
+puts a.asciify("Computers")
+
+a = Artii::Base.new
+puts a.asciify("      Against")
+
+a = Artii::Base.new
+puts a.asciify("Developers!")
 
 game = Game.new(question_cards, answer_cards, players, 7)
 game.deal_hand()

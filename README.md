@@ -2,23 +2,47 @@
 
 #### Outline
 
-**Computers against Developers** is a terminal app inspired by the game "Cards against Humanity". This is built using Ruby to explore object-oriented programming, as well as modularisation, and DRY scripting principles.
+**Computers against Developers** is a terminal app inspired by the game "Cards against Humanity". This is built using Ruby to explore **object-oriented programming**, as well as **modularisation**, and **DRY scripting** principles.
 
 In this version, the user plays against the computer in order to try and win the game, by accumulating the most points against the other computer 'players'.
 
-#### Description
+---
+
+#### R3 Referenced Sources
+
+1. Inspired by the game Cards against humanity
+
+https://cardsagainsthumanity.com/
+
+2. I got inspiration for the card content from a game (also inspired by cards against humanity) called Cards against Developers. I found this game while looking for funny developer problems as inspiration to use for my terminal app.
+
+https://www.cardcastgame.com/browse/deck/3FAGW
+
+---
+
+#### R4 Source Control Repository
+
+https://github.com/HeyitsmeTazG/compAgainstDevs_terminalApp
+
+---
+
+### Software Development Plan
+
+#### Game Description
 
 The game opens on a welcome screen and displays a menu of options for the player to choose from. Choosing an option requires user input of a number to specify which menu option they want.
 
-The player is able to view rules, view past scores, start a new game, or exit.
+The player is able to View Rules, View Past Scores, Start New Game, or Exit.
 
 When starting a new game, the computer is the **Code Master**, who deals out the answer-cards to the players, and also asks draws a question card at the beginning of each round for the players to answer.
 
-The Code Master then shuffles the answers given in the round, and the answer cards are presented to the screen, so that we can read the combinations.
+The answer cards are presented to the screen once they have been submitted, so that the user can read all of the combinations.
 
 The Code Master then randomly selects an answer card from the cards provided, and the player that submitted it wins the round and gains a point.
 
-This repeats until there are no more cards to play.
+This repeats until there are no more cards to play, and a winner is determined.
+
+---
 
 #### Motivation and Other Ideas
 
@@ -40,27 +64,15 @@ This is another project I am still very interested in building, though again, th
 
 I also feel as though this project would be better executed through other programming languages where I could add stylesheets to make the UI more intuitive and accessible.
 
-#### R3 Referenced Sources
+---
 
-1. Inspired by the game Cards against humanity
+#### R5 Purpose & Scope
 
-https://cardsagainsthumanity.com/
+---
 
-2. I got inspiration for the card content from a game (also inspired by cards against humanity) called Cards against Developers. I found this game while looking for funny developer problems as inspiration to use for my terminal app.
+#### R6 Features
 
-https://www.cardcastgame.com/browse/deck/3FAGW
-
-#### R4 Source Control Repository
-
-https://github.com/HeyitsmeTazG/compAgainstDevs_terminalApp
-
-# Software Development Plan
-
-### R5 Purpose & Scope
-
-### R6 Features
-
-**Current**
+**Current Features**
 
 **1.** Display menu, and allow selection using user input to choose an option:
 
@@ -69,11 +81,11 @@ https://github.com/HeyitsmeTazG/compAgainstDevs_terminalApp
 - Start New Game
 - Exit
 
-**2.** Cards are randomly pulled from an array and distributed among players using **.pop**, which is defined in **deal_card** method.
-**3.** **show_hand** is a method which allows the player to view the cards they have in their hand.
+**2.** Cards are randomly pulled from an array and distributed among players using **.pop**, which is defined in the **deal_card** method.
+**3.** The **show_hand** is a method which allows the player to view the cards they have in their hand.
 **4.** Player is able to choose which card to submit each round, which is executed after being prompted for user input.
-**5.** Method to display all answer combinations from players (both Human and Computer) so that the game is more interactive and fun for the user.
-**6.** Method that randomly selects winner of each round.
+**5.** A method to display all answer combinations from players (both Human and Computer) so that the game is more interactive and fun for the user.
+**6.** A method that randomly selects winner of each round.
 **7.** A point is allocated to the winner of the round and is stored in the players individual point total.
 **8.** Loops are used to run through the Game Play until there are no cards remaining for each element.
 For example:
@@ -82,22 +94,38 @@ For example:
 - Dealing question cards.
 
 **9.** The winner of the game is calculated by comparing each players point total, and determining which player has the most points.
-**10.** There are 2 posible outcomes of the game:
+**10.** The final scores for each player are displayed on the screen.
+**11.** There are 2 posible outcomes of the game:
 
 - Either the Human Player wins, and the terminal displays a congratulatory message, or
 - One of the computer player wins, in which case Computers have defeated Humans, and a message indicates that Computers will take over the world.
 
-**Possible**
-While designing this app, there were a few features I wanted to include, but were unfortunately outside of my scope to execute for the time-frame of this project.
+**Possible Features**
+While designing this app, there were a few features I wanted to include, but were unfortunately outside of my scope to execute for the time-frame for this project.
 
 Some of the features I would have liked to include are:
 
 - Linking multiple terminals together so that friends could play with each other in the same game.
 - Allow players to rotate between being Code Master and a Human Player.
-- Allow Code Master to manually select favourite answer card.
-- Re-fill players hand back up to minimum amount of cards until there are no cards left in answer card deck.
+- Allow Code Master to manually select favourite answer card and distribute point accordingly.
+- Re-fill players hand back up to minimum amount of cards until there are no cards left in the answer-card deck.
 
-##### R7, R8, R9??? Design and Implementation
+---
+
+#### R7 Outline of User Interaction
+
+**1.** Player is presented with a Welcome screen and menu of options.
+**2.** Player chooses one of the options, which triggers a response dependant on what they chose.
+**3.** The Player has the option to return to the main menu screen if they choose to either read the instructions, or view high scores.
+**4.** Once the game has started, the Player is prompted throughout the game to view cards and select which card they wish to answer the question with.
+**5.** The viewer is also able to view all of the answers submitted my each Computer Player in each round, so that the game is more interactive and funny.
+**6.** Once all of the rounds have been played, the final scores are calculated and displayed in the terminal.
+**7.** The end-of-game screen is determined by whether or not the Human Player won the game, or if it was one of the Computer Players.
+**8.** The game ends and the Main Menu re-appears, allowing the user to select one of the options (View Rules, View Scores, Start New Game, or Exit).
+
+---
+
+#### R8, R9 Design and Implementation
 
 Computers Against Developers was created in three days as part of Terminal Application using Ruby Assignment at Coder Academy.
 
@@ -107,40 +135,79 @@ I settled on this Cards Against Humanity inspired game instead, and began by lis
 
 I then began writing some code in order to structure my ideas, but quickly realised that documenting my plans was a much better idea, and set off to build a Flowchart which clearly outlines the Game Play, Features, and User Interaction.
 
-## Flowchart of story pathways and functions:
-### R7 Outline of User Interaction
+After completing the Flowchart, I had a better understanding of how to structure my code, and worked my way through the chart accordingly, incorporating Developer tools such as variables, loops, methods, classes, arrays, and Gems.
 
-### R8 Flow Control Diagram
+Understanding the flow of the game made writing the code itself much easier, and as a result I was able to minimise the amount of time spent in utter confusion trying to fix errors.
 
-### R9 Implementation Plan
-
-##### Code Structure
-
-**Gems used**
-
-### R10 Instructions for use
+#### Flowchart of story pathways and functions:
 
 ---
 
-##### Build Status
+#### Code Structure
+
+---
+
+#### Gems used
+
+Computers Against Developers makes use of a number of Gems to improve the user experience and enhance the overall funcitonality of the game.
+
+<!--
+Bundler Is used to handle all Gem installations. To provide an easy setup for the user as all version and dependencies are controlled through it and saved in the gem & gem lock files.
+Test-Unit Was used to assist in Test Driven Development. -->
+
+**Colorize** Enables the use of coloured outputs in the Terminal.
+
+<!--
+TTY-Cursor To enable the computer to easily navigate the console and delete lines.
+TTY-ProgressBar Which enables the ability to easily display and create progress bars. (The file transfers) -->
+
+---
+
+#### R10 Instructions for use
+
+---
+
+#### Build Status
 
 **Complete, in progress etc**
 
 ---
 
-##### Instructions for use
+#### Instructions for use
 
-- how to download && run through terminal
+Follow these instructions to [download and install Ruby](https://www.ruby-lang.org/en/documentation/installation/) on your computer.
+
+Download and unzip the project files onto your computer.
+
+On the terminal command line, navigate to the src folder. Install the bundler gem (if you haven't already)
+
+> install bundler
+
+Ask bundle to install the gems that we use for the program.
+
+> bundle install
+
+In the terminal command line, navigate to the src folder by inputting the command
+
+> cd (src - where you saved the files)
+
+Input the below command in the terminal command line.
+
+> ruby compAgainstDevs_terminalApp.rb
+
+If you get an error message try updating your gems
+
+> gem update --system
+
+Run program using step 6 again.
 
 ---
 
-
-
-##### Testing
+#### Testing
 
 ---
 
-##### Project timeline and Planning Process(Trello)
+#### Project timeline and Planning Process(Trello)
 
 **Reword this:**
 
@@ -148,6 +215,6 @@ The project timeline was managed through Trello and updated as I progressed. My 
 
 ---
 
-##### Copyright, ethical and social issues
+#### Copyright, ethical and social issues
 
 ---
