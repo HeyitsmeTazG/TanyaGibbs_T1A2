@@ -82,11 +82,17 @@ I also feel as though this project would be better executed through other progra
 - Exit
 
 **2.** Cards are randomly pulled from an array and distributed among players using **.pop**, which is defined in the **deal_card** method.
+
 **3.** The **show_hand** is a method which allows the player to view the cards they have in their hand.
+
 **4.** Player is able to choose which card to submit each round, which is executed after being prompted for user input.
+
 **5.** A method to display all answer combinations from players (both Human and Computer) so that the game is more interactive and fun for the user.
+
 **6.** A method that randomly selects winner of each round.
+
 **7.** A point is allocated to the winner of the round and is stored in the players individual point total.
+
 **8.** Loops are used to run through the Game Play until there are no cards remaining for each element.
 For example:
 
@@ -94,7 +100,9 @@ For example:
 - Dealing question cards.
 
 **9.** The winner of the game is calculated by comparing each players point total, and determining which player has the most points.
+
 **10.** The final scores for each player are displayed on the screen.
+
 **11.** There are 2 posible outcomes of the game:
 
 - Either the Human Player wins, and the terminal displays a congratulatory message, or
@@ -115,12 +123,19 @@ Some of the features I would have liked to include are:
 #### R7 Outline of User Interaction
 
 **1.** Player is presented with a Welcome screen and menu of options.
+
 **2.** Player chooses one of the options, which triggers a response dependant on what they chose.
+
 **3.** The Player has the option to return to the main menu screen if they choose to either read the instructions, or view high scores.
+
 **4.** Once the game has started, the Player is prompted throughout the game to view cards and select which card they wish to answer the question with.
+
 **5.** The viewer is also able to view all of the answers submitted my each Computer Player in each round, so that the game is more interactive and funny.
+
 **6.** Once all of the rounds have been played, the final scores are calculated and displayed in the terminal.
+
 **7.** The end-of-game screen is determined by whether or not the Human Player won the game, or if it was one of the Computer Players.
+
 **8.** The game ends and the Main Menu re-appears, allowing the user to select one of the options (View Rules, View Scores, Start New Game, or Exit).
 
 ---
