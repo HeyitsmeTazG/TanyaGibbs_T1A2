@@ -38,7 +38,7 @@ class Game
     #     end
 
     def get_question
-        card = question_cards.pop()
+        card = question_cards.sample()
         return card.value
         #  = 0
         # if question_card
@@ -63,7 +63,11 @@ class Game
 
     def deal_card(cards)
         if cards && cards.length() > 0
-            return cards.pop()
+            index = rand(cards.count)
+            this_card = cards[index]
+            cards.delete_at(index)
+
+            return this_card
         else 
             raise "No cards remaining!"
         end
@@ -75,6 +79,7 @@ class Game
 
     def deal_answer_card
        return deal_card(answer_cards)
+       
     end
 
     def play_round
@@ -84,7 +89,21 @@ class Game
         puts question
 
         puts "What answer do you choose?".colorize(:red)
-        # round_answer = gets.chomp
+        round_answer = gets.chomp #todo check that answer is between 1 and 7
+        puts "Your answer is:".colorize(:red)
+        answer = ""
+        card_ID = 0
+        while card_ID < hand_size
+            if round_answer.to_i == card_ID + 1
+                answer = players[0].cards[card_ID].value
+                break
+            end
+            card_ID = card_ID + 1
+        end
+        
+        question["_____"]= answer
+        puts question
+
         # puts round_answer
         # Show question card
         # Display hand

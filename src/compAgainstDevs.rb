@@ -8,24 +8,24 @@ require_relative 'compAgainstDevsPlayerClass'
 # require_relative 'compAgainstDevsTest'
 
 question_cards = [
-    Card.new("After ten years working as a developer I am addicted to ____________."),
-    Card.new("Fixing your father’s computer with ____________."),
-    Card.new("The previous developer left because of ____________."),
-    Card.new("But Google is using _______ so we should too!"),
-    Card.new("Every time someone brings up _________, I throw up a little in my mouth."),
-    Card.new("Implementing _____________ should only take 2 lines of code."),
-    Card.new("If you’re using __________, you’re gonna have a bad time."),
-    Card.new("Only half of programming is coding. The other half is dealing with ________."),
-    Card.new("I think maybe I’ll leave _________ off my resume."),
-    Card.new("If ________ is the answer, you are asking the wrong question."),
-    Card.new("__________: Easy one-step installation."),
-    Card.new("Our release schedule has no time for ____________."),
-    Card.new("Restoring from backups failed due to ____________."),
-    Card.new("For a developer to graduate to senior level, they must be fluent in ________."),
-    Card.new("___________ is a feature, not a bug"),
-    Card.new("____________  as a service"),
-    Card.new("My eyes started bleeding when I opened the editor and saw __________."),
-    Card.new("Sad, but true: our team is addicted to ________.")
+    Card.new("After ten years working as a developer I am addicted to _____."),
+    Card.new("Fixing your father’s computer with _____."),
+    Card.new("The previous developer left because of _____."),
+    Card.new("But Google is using _____ so we should too!"),
+    Card.new("Every time someone brings up _____, I throw up a little in my mouth."),
+    Card.new("Implementing _____ should only take 2 lines of code."),
+    Card.new("If you’re using _____, you’re gonna have a bad time."),
+    Card.new("Only half of programming is coding. The other half is dealing with _____."),
+    Card.new("I think maybe I’ll leave _____ off my resume."),
+    Card.new("If _____ is the answer, you are asking the wrong question."),
+    Card.new("_____: Easy one-step installation."),
+    Card.new("Our release schedule has no time for _____."),
+    Card.new("Restoring from backups failed due to _____."),
+    Card.new("For a developer to graduate to senior level, they must be fluent in _____."),
+    Card.new("_____ is a feature, not a bug"),
+    Card.new("_____  as a service"),
+    Card.new("My eyes started bleeding when I opened the editor and saw _____."),
+    Card.new("Sad, but true: our team is addicted to _____.")
 ]
 
 answer_cards = [
