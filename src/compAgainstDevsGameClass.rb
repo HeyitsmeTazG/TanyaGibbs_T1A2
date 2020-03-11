@@ -17,6 +17,8 @@ class Game
 
     end
 
+    
+
     def deal_hand
         dealt = 0
         while dealt < hand_size 
@@ -29,13 +31,22 @@ class Game
         
     end
 
-    # def show_question(question_card_ID)
-    #     question_card_ID = 0
-    #     while question_card_ID < hand_size 
-    #         puts question_cards[question_card_ID].cards[@question_card].value 
-    #         question_card_ID = question_card_ID + 1
+    # if cards && cards.length() > 0
+    #         return cards.pop()
+    #     else 
+    #         raise "No cards remaining!"
     #     end
-    # end
+
+    def get_question
+        card = question_cards.pop()
+        return card.value
+        #  = 0
+        # if question_card
+        # while question_card_ID < hand_size 
+        #     puts question_cards[question_card_ID].cards[@question_card].value 
+        #     question_card_ID = question_card_ID + 1
+        # end
+    end
 
     # This method is to show the cards in a players hand. If the card ID (number of cards player has) is less than the number of cards that should be allocated, another card is dealt. This loops around for each of the players until they have the right amount of cards as indicated by the hand_size argument.
     # Once the hand size is met, the loop breaks.
@@ -44,7 +55,8 @@ class Game
         puts "Your cards are:".colorize(:red)
         while card_ID < hand_size
             # puts "1.".chomp
-            puts (players[player_ID].cards[card_ID].value).colorize(:black).on_white
+            line_number = card_ID + 1
+            puts (line_number.to_s + ". " + players[player_ID].cards[card_ID].value).colorize(:black).on_white
             card_ID = card_ID + 1
         end
     end
@@ -66,6 +78,14 @@ class Game
     end
 
     def play_round
+        deal_hand
+        show_hand(0)
+        question = get_question()
+        puts question
+
+        puts "What answer do you choose?".colorize(:red)
+        # round_answer = gets.chomp
+        # puts round_answer
         # Show question card
         # Display hand
         # Choose answer card
@@ -111,4 +131,4 @@ end
 
 # ['string one', 'string two','string one']
 
-
+# end

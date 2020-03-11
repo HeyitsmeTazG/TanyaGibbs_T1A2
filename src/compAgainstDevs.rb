@@ -78,37 +78,77 @@ puts a.asciify("      Against")
 a = Artii::Base.new
 puts a.asciify("Developers!")
 
+def waits(time)
+    num = time
+    sleep_time = [(0.1), (0.4), (1.0), (1.5), (3.0)]
+    sleep(sleep_time[num])
+end
+
+# waits(2)
+
+def print_with_pause(str, sleep_time = 0.01)
+  chars = str.chars
+  chars.each do |c|
+    print c # work with colorize
+    sleep(sleep_time) # if sleep_time is float, unit is second
+        end
+  puts ""
+end
+
+def get_menu
+        puts "Main Menu"
+        puts "1: View Rules".colorize(:red)
+        puts "2: Past Scores".colorize(:red)
+        puts "3: Start New Game".colorize(:red)
+        puts "4: Exit".colorize(:red)
+    return gets.chomp
+end
+
+
+print_with_pause("Welcome, Developer...".colorize(:red))
+# waits(2)
+puts `clear`
+print_with_pause("What is your name?".colorize(:red))
+name = "taz"
+print_with_pause("Hello #{name}. You are now player 1".colorize(:red))
+print_with_pause("Do you really think you can beat us?".colorize(:red))
+# waits(2)
+puts `clear`
+
+
+
 game = Game.new(question_cards, answer_cards, players, 7)
-game.deal_hand()
-game.show_hand(0)
-game.show_hand(1)
-game.show_hand(2)
-game.show_hand(3)
+game_alive = true
+
+while game_alive
+    user_response = get_menu
+    case user_response
+        when "1" 
+            puts "View Rules"
+            game_rules = "Game rules"
+            p game_rules
+        when "2" 
+            puts "Past Scores"
+            past_scores = past_scores
+            p past_scores
+        when "3" 
+            puts "Start New Game"
+            game.play_round
+        when "4" 
+            game_alive = false
+    end
+end
+
+
+# get_menu
+# game.deal_hand()
+# game.show_hand(0)
+# game.show_hand(1)
+# game.show_hand(2)
+# game.show_hand(3)
 # game.show_question(0)
 # puts game
- 
-# def gets_player_input(options)
-#   loop do
-#     puts options
-#     input = gets.chomp
-#     legitimate_choice = yield(input)
-#     if legitimate_choice == true
-#       return
-#     end
-#   end
-# end
 
-# gets_player_input("Choose rock paper or scissors") do |input|
-#   # puts 'second'
-#   if ['rock', 'paper', 'scissors'].include? input
-#     true
-#   end
-# end
-
-# gets_player_input("What square do you choose?") do |input|
-#   if ['A1', 'A2','A3', 'B1'].include? input
-#     true
-#   end
 # end
 
 
