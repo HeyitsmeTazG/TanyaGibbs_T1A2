@@ -1,5 +1,6 @@
 require 'colorize'
 require 'tty-cursor'
+require 'artii'
 require_relative 'compAgainstDevsGameClass'
 require_relative 'compAgainstDevsCardClass'
 require_relative 'compAgainstDevsPlayerClass'
@@ -67,12 +68,15 @@ players = [
     Player.new("Matt")
 ]
 
+# puts a = Artii::Base.new :font => 'slant'
+# puts a.asciify('Computers Against Developers!')
+
 game = Game.new(question_cards, answer_cards, players, 7)
 game.deal_hand()
 game.show_hand(0)
-# game.show_hand(1)
-# game.show_hand(2)
-# game.show_hand(3)
+game.show_hand(1)
+game.show_hand(2)
+game.show_hand(3)
 # game.show_question(0)
 # puts game
  

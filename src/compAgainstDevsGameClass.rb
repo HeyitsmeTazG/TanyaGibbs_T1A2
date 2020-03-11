@@ -43,6 +43,7 @@ class Game
         card_ID = 0
         puts "Your cards are:".colorize(:red)
         while card_ID < hand_size
+            # puts "1.".chomp
             puts (players[player_ID].cards[card_ID].value).colorize(:black).on_white
             card_ID = card_ID + 1
         end

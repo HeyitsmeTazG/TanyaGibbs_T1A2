@@ -9,7 +9,7 @@ class Player
 
 end
 
-class QuestionMaster < Player
+class CodeMaster < Player
 
 end
 
