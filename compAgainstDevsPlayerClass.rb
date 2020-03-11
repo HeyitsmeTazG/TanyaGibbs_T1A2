@@ -7,7 +7,10 @@ class Player
         @cards = []
     end
 
-    
+end
+
+class QuestionMaster < Player
+
 end
 
 class HumanPlayer < Player

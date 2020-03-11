@@ -1,9 +1,10 @@
+require 'colorize'
+require 'tty-cursor'
 require_relative 'compAgainstDevsGameClass'
 require_relative 'compAgainstDevsCardClass'
 require_relative 'compAgainstDevsPlayerClass'
 
 # require_relative 'compAgainstDevsTest'
-
 
 question_cards = [
     Card.new("After ten years working as a developer I am addicted to ____________."),
@@ -69,7 +70,11 @@ players = [
 game = Game.new(question_cards, answer_cards, players, 7)
 game.deal_hand()
 game.show_hand(0)
-puts game
+# game.show_hand(1)
+# game.show_hand(2)
+# game.show_hand(3)
+# game.show_question(0)
+# puts game
  
 # def gets_player_input(options)
 #   loop do

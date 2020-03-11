@@ -29,10 +29,21 @@ class Game
         
     end
 
+    # def show_question(question_card_ID)
+    #     question_card_ID = 0
+    #     while question_card_ID < hand_size 
+    #         puts question_cards[question_card_ID].cards[@question_card].value 
+    #         question_card_ID = question_card_ID + 1
+    #     end
+    # end
+
+    # This method is to show the cards in a players hand. If the card ID (number of cards player has) is less than the number of cards that should be allocated, another card is dealt. This loops around for each of the players until they have the right amount of cards as indicated by the hand_size argument.
+    # Once the hand size is met, the loop breaks.
     def show_hand(player_ID)
         card_ID = 0
-        while card_ID < hand_size 
-            puts players[player_ID].cards[card_ID].value 
+        puts "Your cards are:".colorize(:red)
+        while card_ID < hand_size
+            puts (players[player_ID].cards[card_ID].value).colorize(:black).on_white
             card_ID = card_ID + 1
         end
     end
