@@ -28,38 +28,8 @@ question_cards = [
     Card.new("Sad, but true: our team is addicted to _____.")
 ]
 
-answer_cards = [
-    Card.new("Browsing StackOverflow for hours without actually looking for a solution"),
-    Card.new("Facebook identity theft"),
-    Card.new("Extremely casual use of sudo"),
-    Card.new("Failed sprints"),
-    Card.new("My browsing history"),
-    Card.new("Fluffy cat gifs"),
-    Card.new("Listening to Nickelback"),
-    Card.new("FizzBuzz"),
-    Card.new("Rethoric comments in code"),
-    Card.new("Sadness"),
-    Card.new("Terminal magic"),
-    Card.new("Sarcastic code review comments"),
-    Card.new("The cult of Mac"),
-    Card.new("Ruby"),
-    Card.new("Turning it off and on again"),
-    Card.new("Code comments written in a foreign language"),
-    Card.new("Novice programmers"),
-    Card.new("Syntax errors"),
-    Card.new("Coding while spooning"),
-    Card.new("GitHub"),
-    Card.new("Comic Sans"),
-    Card.new("Doing production deploys while drunk"),
-    Card.new("Women in tech"),
-    Card.new("Coding and drinking in equal proportions"),
-    Card.new("Sad developers"),
-    Card.new("Not giving a shit about future maintainers of your code"),
-    Card.new("Equating coding skill with sexual prowess"),
-    Card.new("Arrays"),
-    Card.new("Programming drunk"),
-    Card.new("Code without comments")
-]
+@answer_cards = []
+    
 
 players = [
     Player.new("User"),
@@ -104,6 +74,40 @@ def get_menu
     return gets.chomp
 end
 
+def reset_answer_cards
+    @answer_cards = [
+        Card.new("Browsing StackOverflow for hours without actually looking for a solution"),
+        Card.new("Facebook identity theft"),
+        Card.new("Extremely casual use of sudo"),
+        Card.new("Failed sprints"),
+        Card.new("My browsing history"),
+        Card.new("Fluffy cat gifs"),
+        Card.new("Listening to Nickelback"),
+        Card.new("FizzBuzz"),
+        Card.new("Rethoric comments in code"),
+        Card.new("Sadness"),
+        Card.new("Terminal magic"),
+        Card.new("Sarcastic code review comments"),
+        Card.new("The cult of Mac"),
+        Card.new("Ruby"),
+        Card.new("Turning it off and on again"),
+        Card.new("Code comments written in a foreign language"),
+        Card.new("Novice programmers"),
+        Card.new("Syntax errors"),
+        Card.new("Coding while spooning"),
+        Card.new("GitHub"),
+        Card.new("Comic Sans"),
+        Card.new("Doing production deploys while drunk"),
+        Card.new("Women in tech"),
+        Card.new("Coding and drinking in equal proportions"),
+        Card.new("Sad developers"),
+        Card.new("Not giving a shit about future maintainers of your code"),
+        Card.new("Equating coding skill with sexual prowess"),
+        Card.new("Arrays"),
+        Card.new("Programming drunk"),
+        Card.new("Code without comments")
+    ]
+end
 
 print_with_pause("Welcome, Developer...".colorize(:red))
 # waits(2)
@@ -117,7 +121,7 @@ puts `clear`
 
 
 
-game = Game.new(question_cards, answer_cards, players, 7)
+game = Game.new(question_cards, players, 7)
 game_alive = true
 
 while game_alive
@@ -133,7 +137,9 @@ while game_alive
             p past_scores
         when "3" 
             puts "Start New Game"
-            game.play_round
+            reset_answer_cards
+            puts @answer_cards
+            game.play_game(@answer_cards)
         when "4" 
             game_alive = false
     end

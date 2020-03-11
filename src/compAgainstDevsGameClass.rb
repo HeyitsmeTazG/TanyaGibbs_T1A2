@@ -4,15 +4,15 @@ class Game
     attr_accessor :answer_cards
     attr_reader   :question_cards, :hand_size, :players
 
-    def initialize(question_cards, answer_cards, players, hand_size)
+    def initialize(question_cards, players, hand_size)
        
         @question_cards = question_cards
-        @answer_cards = answer_cards
+        @answer_cards = nil
         @hand_size = hand_size
         @players = players
 
-        if question_cards == nil || answer_cards == nil
-            raise "Neither deck should be empty"
+        if question_cards == nil
+            raise "Question card deck cannot be empty"
         end 
 
     end
@@ -82,7 +82,8 @@ class Game
        
     end
 
-    def play_round
+    def play_game(game_cards)
+        @answer_cards = game_cards
         deal_hand
         show_hand(0)
         question = get_question()
@@ -104,11 +105,9 @@ class Game
         question["_____"]= answer
         puts question
 
-        # puts round_answer
-        # Show question card
-        # Display hand
-        # Choose answer card
-        # Winner of round is generated        
+        #todo create new method called play_round
+        # in play_game, we have a loop of hand_size. in each loop we call play_round
+              
     end
 
     def start
