@@ -169,16 +169,31 @@ After completing the Flowchart, I had a better understanding of how to structure
 Understanding the flow of the game made writing the code itself much easier, and as a result I was able to minimise the amount of time spent in utter confusion trying to fix errors.
 
 #### Flowchart of story pathways and functions:
-
+#todo
 ---
 
 #### Code Structure
-
+#todo
 ---
 
 #### Gems used
 
 Computers Against Developers makes use of a number of Gems to improve the user experience and enhance the overall funcitonality of the game.
+
+#todo
+
+[Colorize]()
+gem "colorize", "~> 0.8.1"
+
+gem 'tty-cursor'
+
+gem 'artii', "~> 2.1"
+
+gem  "tty-prompt"
+
+gem 'test-unit'
+
+gem 'io/console'
 
 <!--
 Bundler Is used to handle all Gem installations. To provide an easy setup for the user as all version and dependencies are controlled through it and saved in the gem & gem lock files.
@@ -204,15 +219,20 @@ TTY-ProgressBar Which enables the ability to easily display and create progress 
 
 #### Build Status
 
-<!-- **Complete, in progress etc** -->
+**MVP completed**
+#todo
 
 ---
 
 #### Testing
+#todo
+
+With the help of the unit-test Gem, I built 4 tests, to ensure the app ran correctly.
 
 ---
 
 #### Project timeline and Planning Process
+#todo
 
 <!-- (Trello) -->
 
@@ -223,5 +243,5 @@ The project timeline was managed through Trello and updated as I progressed. My 
 ---
 
 #### Copyright, ethical and social issues
-
+#todo
 ---

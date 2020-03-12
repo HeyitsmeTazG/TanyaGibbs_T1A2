@@ -96,7 +96,7 @@ class Game
             waits(3)
             space
             print_with_pause("What answer do you choose?".colorize(:red))
-            round_answer = gets.chomp #todo check that answer is between 1 and 7
+            round_answer = gets.chomp
             space
             print_with_pause("Your answer combination is:".colorize(:red))
             waits(1)
@@ -118,9 +118,7 @@ class Game
             waits(3)
             loop_count = loop_count + 1
             if loop_count < 3
-                print_with_pause("Are you ready for the next round?".colorize(:red))
-                space
-                print_with_pause("Press Enter".colorize(:red))
+                print_with_pause("Press Enter to start next round".colorize(:red))
                 gets.chomp
                 puts `clear`
             end
@@ -145,16 +143,16 @@ class Game
             a = Artii::Base.new
             puts a.asciify("Congrats!").colorize(:red)
             space
-            print_with_pause("      You have beat the computers. ".colorize(:red))
+            print_with_pause("       You have beat the computers. ".colorize(:red))
             waits(3)
         else
             a = Artii::Base.new
             puts a.asciify("DEFEAT").colorize(:red)
             space
-            print_with_pause("You are no match for machines!. Enjoy crying yourself to sleep tonight!".colorize(:red))
+            print_with_pause("You are no match for machines! Enjoy crying yourself to sleep tonight!".colorize(:red))
             waits(3)
         end
-        print_with_pause("Press Enter to go back to Main Menu".colorize(:red))
+        print_with_pause("     Press Enter to go back to Main Menu".colorize(:red))
         gets.chomp
         puts `clear`
     end
