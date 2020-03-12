@@ -8,6 +8,7 @@ require_relative 'compAgainstDevsGameClass'
 require_relative 'compAgainstDevsCardClass'
 require_relative 'compAgainstDevsPlayerClass'
 
+@prompt = TTY::Prompt.new
 # require_relative 'compAgainstDevsTest'
 
 question_cards = [
@@ -53,11 +54,11 @@ puts a.asciify("Developers!")
 
 print_with_pause("             
     
-                Press any key to continue.".colorize(:red))
-                STDIN.getch
+               Press any key to continue.".colorize(:red))
+               STDIN.getch
 
+puts `clear`
 end
-
 
 
 def waits(time)
@@ -66,7 +67,7 @@ def waits(time)
     sleep(sleep_time[num])
 end
 
-# waits(2)
+waits(2)
 #todo - change time
 def print_with_pause(str, sleep_time = 0.07)
   chars = str.chars
@@ -77,13 +78,19 @@ def print_with_pause(str, sleep_time = 0.07)
   puts ""
 end
 
-def get_menu
-        puts "Main Menu"
-        puts "1: View Rules".colorize(:red)
-        puts "2: Past Scores".colorize(:red)
-        puts "3: Start New Game".colorize(:red)
-        puts "4: Exit".colorize(:red)
-    return gets.chomp
+def deletes(word)
+    word.each_char do |char|
+        print TTY::Cursor.backward(1)
+        print TTY::Cursor.clear_char(1)
+        sleep(0.09)
+    end
+end
+
+def types(word)
+    word.each_char do |char|
+        print char
+        sleep(0.09)
+    end 
 end
 
 def reset_answer_cards
@@ -121,70 +128,83 @@ def reset_answer_cards
     ]
 end
 
-logo
-print_with_pause("Welcome, Developer...".colorize(:red))
-waits(1)
-puts `clear`
-print_with_pause("What is your name?".colorize(:red))
-name = gets.chomp
-print_with_pause("Hello #{name}. You are now player 1.".colorize(:red))
-waits(2)
-puts `clear`
-print_with_pause("Do you really think you can beat us?".colorize(:red))
-print_with_pause("(Yes) or (No)".colorize(:red))
-input = gets.chomp
-    if input == "yes"
-        puts `clear`
-        print_with_pause("We'll see about that...".colorize(:red))
-        waits(1)
-        puts `clear`
-    else input == "no"
-        puts `clear`
-        print_with_pause("I don't have much faith in you either...".colorize(:red))
-        waits(1)
-        puts `clear`
-    end
-waits(1)
-puts `clear`
+# logo
+# print_with_pause("Welcome.".colorize(:red))
+# print_with_pause("What is your name?".colorize(:red))
+# name = gets.chomp
+# puts `clear`
+# types("Hello Developer...".colorize(:red))
+# deletes("Developer...")
+# waits(1)
+# types("#{name}. ")
+# waits(1)
+# print_with_pause("You are now player 1.".colorize(:red)) 
+# waits(2)
+# puts `clear`
+
+# print_with_pause("Do you really think you can beat us?".colorize(:red))
+# print_with_pause("(Yes) or (No)".colorize(:red))
+# input = gets.chomp
+#     if input == "yes"
+#         puts `clear`
+#         print_with_pause("We'll see about that...".colorize(:red))
+#         waits(1)
+#         puts `clear`
+#     else input == "no"
+#         puts `clear`
+#         print_with_pause("I don't have much faith in you either...".colorize(:red))
+#         waits(1)
+#         puts `clear`
+#     end
+# waits(1)
+# puts `clear`
 print_with_pause("Lets begin...".colorize(:red))
 waits(2)
 
 game = Game.new(question_cards, players, 7)
 game_alive = true
 
+def main_menu
+    menu_choice = @prompt.select("Main Menu") do |menu|
+      menu.enum "."
+      menu.choice "View Rules", 1
+      menu.choice "View High Scores", 2
+      menu.choice "Start New Game", 3
+      menu.choice "Exit", 4
+    end
+    return menu_choice
+  end
+
+#   main_menu
+
+#   def game_rules
+
+#   end
+
+#   def past_scores
+
+#   end
+
+
 while game_alive
-    user_response = get_menu
-    case user_response
-        when "1" 
+    case main_menu
+        when 1 
             print_with_pause("Loading Game rules...".colorize(:red))
             puts `clear`
             game_rules = "Game rules"
             p game_rules
-        when "2" 
+        when 2
             print_with_pause("Showing past scores...".colorize(:red))
             puts `clear`
             past_scores = past_scores
             p past_scores
-        when "3" 
+        when 3 
+            puts `clear`
             print_with_pause("Starting new game...".colorize(:red))
             puts `clear`
             reset_answer_cards
             game.play_game(@answer_cards)
-        when "4" 
+        when 4
             game_alive = false
     end
 end
-
-
-# get_menu
-# game.deal_hand()
-# game.show_hand(0)
-# game.show_hand(1)
-# game.show_hand(2)
-# game.show_hand(3)
-# game.show_question(0)
-# puts game
-
-# end
-
-

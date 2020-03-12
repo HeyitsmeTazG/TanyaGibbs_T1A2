@@ -69,32 +69,54 @@ class Game
        return deal_card(answer_cards)
     end
 
+    def space
+        puts ""
+    end
+
     def play_game(game_cards)
+        
         @answer_cards = game_cards
         deal_hand
-        show_hand(0)
-        question = get_question()
-        puts question
-
-        print_with_pause("What answer do you choose?".colorize(:red))
-        round_answer = gets.chomp #todo check that answer is between 1 and 7
-        print_with_pause("The answer you have chosen is...".colorize(:red))
-        answer = ""
-        card_ID = 0
-        while card_ID < hand_size
-            if round_answer.to_i == card_ID + 1
-                answer = players[0].cards[card_ID].value
-                break
+        3.times do
+            show_hand(0)
+            space
+            question = get_question()
+            waits(2)
+            print_with_pause("The question for this round is:".colorize(:red))
+            space
+            puts question
+            waits(3)
+            space
+            print_with_pause("What answer do you choose?".colorize(:red))
+            round_answer = gets.chomp #todo check that answer is between 1 and 7
+            space
+            print_with_pause("Your answer combination is...".colorize(:red))
+            waits(1)
+            answer = ""
+            card_ID = 0
+            while card_ID < hand_size
+                if round_answer.to_i == card_ID + 1
+                    answer = players[0].cards[card_ID].value
+                    break
+                end
+                card_ID = card_ID + 1
             end
-            card_ID = card_ID + 1
+            waits(1)
+            question["_____"] = answer
+            space
+            puts question
+            space
+            waits(3)
+            print_with_pause("Are you ready for the next round?".colorize(:red))
+            space
+            print_with_pause("Press Enter".colorize(:red))
+            gets.chomp
+            puts `clear`
+            
         end
-        waits(1)
-        (question["_____"] = answer).colorize(:black).on_white
-        puts question
-
+    end
         #todo create new method called play_round
         # in play_game, we have a loop of hand_size. in each loop we call play_round
-    end
 
     # def start
     #     # Deal hand
