@@ -128,38 +128,38 @@ def reset_answer_cards
     ]
 end
 
-logo
-print_with_pause("Welcome.".colorize(:red))
-print_with_pause("What is your name?".colorize(:red))
-name = gets.chomp
-puts `clear`
-types("Hello Developer...".colorize(:red))
-deletes("Developer...")
-waits(1)
-types("#{name}. ")
-waits(1)
-print_with_pause("You are now player 1.".colorize(:red)) 
-waits(2)
-puts `clear`
+# logo
+# print_with_pause("Welcome.".colorize(:red))
+# print_with_pause("What is your name?".colorize(:red))
+# name = gets.chomp
+# puts `clear`
+# types("Hello Developer...".colorize(:red))
+# deletes("Developer...")
+# waits(1)
+# types("#{name}. ")
+# waits(1)
+# print_with_pause("You are now Player 1.".colorize(:red)) 
+# waits(2)
+# puts `clear`
 
-print_with_pause("Do you really think you can beat us?".colorize(:red))
-print_with_pause("(Yes) or (No)".colorize(:red))
-input = gets.chomp
-    if input == "yes"
-        puts `clear`
-        print_with_pause("We'll see about that...".colorize(:red))
-        waits(1)
-        puts `clear`
-    else input == "no"
-        puts `clear`
-        print_with_pause("I don't have much faith in you either...".colorize(:red))
-        waits(1)
-        puts `clear`
-    end
-waits(1)
-puts `clear`
-print_with_pause("Lets begin...".colorize(:red))
-waits(2)
+# print_with_pause("Do you really think you can beat us?".colorize(:red))
+# print_with_pause("(Yes) or (No)".colorize(:red))
+# input = gets.chomp
+#     if input == "yes"
+#         puts `clear`
+#         print_with_pause("We'll see about that...".colorize(:red))
+#         waits(1)
+#         puts `clear`
+#     else input == "no"
+#         puts `clear`
+#         print_with_pause("I don't have much faith in you either...".colorize(:red))
+#         waits(1)
+#         puts `clear`
+#     end
+# waits(1)
+# puts `clear`
+# print_with_pause("Lets begin...".colorize(:red))
+# waits(2)
 
 game = Game.new(question_cards, players, 7)
 game_alive = true
@@ -181,9 +181,7 @@ def main_menu
 
 #   end
 
-#   def past_scores
 
-#   end
 
 
 while game_alive
@@ -195,9 +193,8 @@ while game_alive
             p game_rules
         when 2
             print_with_pause("Showing past scores...".colorize(:red))
-            puts `clear`
-            past_scores = past_scores
-            p past_scores
+            # puts `clear`
+            game.show_scores
         when 3 
             puts `clear`
             print_with_pause("Starting new game...".colorize(:red))

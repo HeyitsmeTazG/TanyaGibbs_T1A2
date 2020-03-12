@@ -19,19 +19,24 @@ class Game
 
     def deal_hand
         dealt = 0
-        while dealt < hand_size 
-            for player in players
+        while dealt < @hand_size 
+            for player in @players
                player.cards.push(deal_answer_card)
             end 
             dealt = dealt + 1
         end
-        return players
+        return @players
         
     end
 
+    # Getting card out of question_cards array and assigning it to q_card
+    # Removing the card index out of the array
+    # returning q_card
     def get_question
-        card = question_cards.sample()
-        return card.value
+        index = rand(@question_cards.count)
+        q_card = @question_cards[index]
+        @question_cards.delete_at(index)
+        return q_card.value
     end
 
     # This method is to show the cards in a players hand. If the card ID (number of cards player has) is less than the number of cards that should be allocated, another card is dealt. This loops around for each of the players until they have the right amount of cards as indicated by the hand_size argument.
@@ -42,9 +47,9 @@ class Game
         print_with_pause("Choose wisely.".colorize(:red))
         waits(2)
         puts `clear`
-        while card_ID < hand_size
+        while card_ID < @players[player_ID].cards.length
             line_number = card_ID + 1
-            puts (line_number.to_s + ". " + players[player_ID].cards[card_ID].value).colorize(:black).on_white
+            puts (line_number.to_s + ". " + @players[player_ID].cards[card_ID].value).colorize(:black).on_white
             card_ID = card_ID + 1
         end
     end
@@ -62,11 +67,11 @@ class Game
     end
 
     def  deal_question_card
-       return deal_card(question_cards)
+       return deal_card(@question_cards)
     end 
 
     def deal_answer_card
-       return deal_card(answer_cards)
+       return deal_card(@answer_cards)
     end
 
     def space
@@ -94,9 +99,10 @@ class Game
             waits(1)
             answer = ""
             card_ID = 0
-            while card_ID < hand_size
+            while card_ID < @hand_size
                 if round_answer.to_i == card_ID + 1
-                    answer = players[0].cards[card_ID].value
+                    answer = @players[0].cards[card_ID].value
+                    @players[0].cards.delete_at(card_ID)
                     break
                 end
                 card_ID = card_ID + 1
@@ -112,8 +118,19 @@ class Game
             print_with_pause("Press Enter".colorize(:red))
             gets.chomp
             puts `clear`
+
+        
+            x = rand(@players.count)
+            @players[x].score += 10 
             
         end
+    end
+
+    def show_scores
+        for i in 0..3 do
+            puts @players[i].name + " " + @players[i].score.to_s
+        end
+    # player loop number.name = player loop number.score
     end
         #todo create new method called play_round
         # in play_game, we have a loop of hand_size. in each loop we call play_round
@@ -129,4 +146,3 @@ class Game
     # end
 
 end
-
