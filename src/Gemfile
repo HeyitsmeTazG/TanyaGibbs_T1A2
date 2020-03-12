@@ -11,3 +11,9 @@ gem "colorize", "~> 0.8.1"
 gem 'tty-cursor'
 
 gem 'artii', "~> 2.1"
+
+gem  "tty-prompt"
+
+gem 'test-unit'
+
+gem 'io/console'

@@ -69,7 +69,7 @@ end
 
 waits(2)
 #todo - change time
-def print_with_pause(str, sleep_time = 0.07)
+def print_with_pause(str, sleep_time = 0.01)
   chars = str.chars
   chars.each do |c|
     print c 
