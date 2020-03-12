@@ -17,8 +17,6 @@ class Game
 
     end
 
-    
-
     def deal_hand
         dealt = 0
         while dealt < hand_size 
@@ -31,30 +29,18 @@ class Game
         
     end
 
-    # if cards && cards.length() > 0
-    #         return cards.pop()
-    #     else 
-    #         raise "No cards remaining!"
-    #     end
-
     def get_question
         card = question_cards.sample()
         return card.value
-        #  = 0
-        # if question_card
-        # while question_card_ID < hand_size 
-        #     puts question_cards[question_card_ID].cards[@question_card].value 
-        #     question_card_ID = question_card_ID + 1
-        # end
     end
 
     # This method is to show the cards in a players hand. If the card ID (number of cards player has) is less than the number of cards that should be allocated, another card is dealt. This loops around for each of the players until they have the right amount of cards as indicated by the hand_size argument.
     # Once the hand size is met, the loop breaks.
     def show_hand(player_ID)
         card_ID = 0
-        puts "Your cards are:".colorize(:red)
+        print_with_pause("Here are your cards...".colorize(:red))
+        print_with_pause("Choose wisely...".colorize(:red))
         while card_ID < hand_size
-            # puts "1.".chomp
             line_number = card_ID + 1
             puts (line_number.to_s + ". " + players[player_ID].cards[card_ID].value).colorize(:black).on_white
             card_ID = card_ID + 1
@@ -79,7 +65,6 @@ class Game
 
     def deal_answer_card
        return deal_card(answer_cards)
-       
     end
 
     def play_game(game_cards)
@@ -89,9 +74,9 @@ class Game
         question = get_question()
         puts question
 
-        puts "What answer do you choose?".colorize(:red)
+        print_with_pause("What answer do you choose?".colorize(:red))
         round_answer = gets.chomp #todo check that answer is between 1 and 7
-        puts "Your answer is:".colorize(:red)
+        print_with_pause("The answer you have chosen is...".colorize(:red))
         answer = ""
         card_ID = 0
         while card_ID < hand_size
@@ -101,52 +86,23 @@ class Game
             end
             card_ID = card_ID + 1
         end
-        
-        question["_____"]= answer
+        wait(1)
+        (question["_____"] = answer).colorize(:black).on_white
         puts question
 
         #todo create new method called play_round
         # in play_game, we have a loop of hand_size. in each loop we call play_round
-              
     end
 
-    def start
-        # Deal hand
-        deal_hand(@hand_size, @players)
+    # def start
+    #     # Deal hand
+    #     deal_hand(@hand_size, @players)
 
-        # Keep playing until there is winner
-        play_round()
+    #     # Keep playing until there is winner
+    #     play_round()
 
-        # Once there is a winner, we exit. 
-    end
+    #     # Once there is a winner, we exit. 
+    # end
 
 end
 
-
-
-# game.start()
-
-
-# class Answer_card
-#     attr_reader :answer_card
-    
-#     def initialize(answer_card)
-#     @answer_card = answer_card
-
-#     end
-# end
-
-# def answer_card 
-#     puts "#{answer1}"
-#     return true
-# end
-
-
-# answer1 = Answer_card.new("Browsing StackOverflow for hours without actually looking for a solution")
-# puts answer1.answer_card
-
-# CSV FILE:! string one, string two, "After ten years working as\,  a developer I am addicted to ____________.", 
-
-# ['string one', 'string two','string one']
-
-# end

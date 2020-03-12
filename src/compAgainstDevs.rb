@@ -1,6 +1,8 @@
 require 'colorize'
 require 'tty-cursor'
 require 'artii'
+require "tty-prompt"
+require 'test-unit'
 require_relative 'compAgainstDevsGameClass'
 require_relative 'compAgainstDevsCardClass'
 require_relative 'compAgainstDevsPlayerClass'
@@ -30,14 +32,12 @@ question_cards = [
 
 @answer_cards = []
     
-
 players = [
     Player.new("User"),
     Player.new("Steph"),
     Player.new("Glen"),
     Player.new("Matt")
 ]
-
 
 a = Artii::Base.new
 puts a.asciify("Computers")
@@ -48,6 +48,12 @@ puts a.asciify("      Against")
 a = Artii::Base.new
 puts a.asciify("Developers!")
 
+
+# prompt = TTY::Prompt.new
+
+# prompt.ask('What is your name?', default: ENV['USER'])# => What is your name? (piotr
+#todo incorporate waits
+
 def waits(time)
     num = time
     sleep_time = [(0.1), (0.4), (1.0), (1.5), (3.0)]
@@ -55,11 +61,11 @@ def waits(time)
 end
 
 # waits(2)
-
+#todo - change time
 def print_with_pause(str, sleep_time = 0.01)
   chars = str.chars
   chars.each do |c|
-    print c # work with colorize
+    print c 
     sleep(sleep_time) # if sleep_time is float, unit is second
         end
   puts ""
@@ -110,15 +116,16 @@ def reset_answer_cards
 end
 
 print_with_pause("Welcome, Developer...".colorize(:red))
-# waits(2)
+waits(1)
 puts `clear`
 print_with_pause("What is your name?".colorize(:red))
-name = "taz"
-print_with_pause("Hello #{name}. You are now player 1".colorize(:red))
+name = gets.chomp
+print_with_pause("Hello #{name}. You are now player 1.".colorize(:red))
+waits(1)
+#todo Use TTY PROMPT to ask yes or no. If yes, display "We'll see about that", if no, display "aiheaw"
 print_with_pause("Do you really think you can beat us?".colorize(:red))
-# waits(2)
+waits(1)
 puts `clear`
-
 
 
 game = Game.new(question_cards, players, 7)
@@ -128,17 +135,19 @@ while game_alive
     user_response = get_menu
     case user_response
         when "1" 
-            puts "View Rules"
+            print_with_pause("Loading Game rules...".colorize(:red))
+            puts `clear`
             game_rules = "Game rules"
             p game_rules
         when "2" 
-            puts "Past Scores"
+            print_with_pause("Showing past scores...".colorize(:red))
+            puts `clear`
             past_scores = past_scores
             p past_scores
         when "3" 
-            puts "Start New Game"
+            print_with_pause("Starting new game...".colorize(:red))
+            puts `clear`
             reset_answer_cards
-            puts @answer_cards
             game.play_game(@answer_cards)
         when "4" 
             game_alive = false
