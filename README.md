@@ -198,7 +198,7 @@ TTY-ProgressBar Which enables the ability to easily display and create progress 
 
 2. Run this command in your terminal
 
-> sh -c "\$(curl -fsSL https://github.com/HeyitsmeTazG/compAgainstDevs_terminalApp/blob/master/src/shell.sh)"
+> sh -c "\$(curl -fsSL https://raw.githubusercontent.com/HeyitsmeTazG/compAgainstDevs_terminalApp/master/src/shell.sh)"
 
 ---
 
