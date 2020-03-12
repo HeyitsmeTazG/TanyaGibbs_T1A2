@@ -1,5 +1,6 @@
 require_relative 'compAgainstDevsCardClass'
 
+# Defining Game classes. All instance variables and game_play methods are located here.
 class Game 
     attr_accessor :answer_cards
     attr_reader   :question_cards, :hand_size, :players
@@ -17,6 +18,7 @@ class Game
 
     end
 
+    # Dealing cards to each player
     def deal_hand
         dealt = 0
         while dealt < @hand_size 
@@ -39,7 +41,7 @@ class Game
         return q_card.value
     end
 
-    # TShow the cards in a players hand. If the card ID (number of cards player has) is less than the number of cards that should be allocated, another card is dealt. This loops around for each of the players until they have the right amount of cards as indicated by the hand_size argument.
+    # Show the cards in a players hand. If the card ID (number of cards player has) is less than the number of cards that should be allocated, another card is dealt. This loops around for each of the players until they have the right amount of cards as indicated by the hand_size argument.
     # Once the hand size is met, the loop breaks.
     def show_hand(player_ID)
         card_ID = 0
@@ -142,11 +144,13 @@ class Game
         if human_winner
             a = Artii::Base.new
             puts a.asciify("Congrats!").colorize(:red)
-            print_with_pause("You have beat the computers. ".colorize(:red))
+            space
+            print_with_pause("      You have beat the computers. ".colorize(:red))
             waits(3)
         else
             a = Artii::Base.new
             puts a.asciify("DEFEAT").colorize(:red)
+            space
             print_with_pause("You are no match for machines!. Enjoy crying yourself to sleep tonight!".colorize(:red))
             waits(3)
         end
@@ -156,7 +160,7 @@ class Game
     end
 
     def game_rules
-        puts "Computers Against Developers is based on everyone's favourite game, Cards Against Humanity. \n \nRULES: \nThe Code Master (the computer) deals 7 cards to each player. \n \nThe Code Master then draws a question card, and each player (both human and computer) submits one of their answer cards. \n \nThe Code Master then chooses a winner for the round, and 10 points are allocated to the winning player. \n \nAfter all rounds have been executed, the total scores are calculated, and the game ends.\n".colorize(:white)
+        puts "Computers Against Developers is based on everyone's favourite game, Cards Against Humanity. \n \nRULES: \nThe Code Master (the computer) deals 7 cards to each player.\n\nThe Code Master then draws a question card, and each player (both human and computer) submits one of their answer cards.\n\nThe Code Master then chooses a winner for the round, and 10 points are allocated to the winning player.\n\nAfter all rounds have been executed, the total scores are calculated, and the game ends.\n".colorize(:white)
         space
         waits(3)
         print_with_pause("Press Enter to go back to Main Menu".colorize(:red))
