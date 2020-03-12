@@ -39,7 +39,9 @@ class Game
     def show_hand(player_ID)
         card_ID = 0
         print_with_pause("Here are your cards...".colorize(:red))
-        print_with_pause("Choose wisely...".colorize(:red))
+        print_with_pause("Choose wisely.".colorize(:red))
+        waits(2)
+        puts `clear`
         while card_ID < hand_size
             line_number = card_ID + 1
             puts (line_number.to_s + ". " + players[player_ID].cards[card_ID].value).colorize(:black).on_white
@@ -86,7 +88,7 @@ class Game
             end
             card_ID = card_ID + 1
         end
-        wait(1)
+        waits(1)
         (question["_____"] = answer).colorize(:black).on_white
         puts question
 

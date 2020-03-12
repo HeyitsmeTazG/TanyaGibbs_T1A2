@@ -3,6 +3,7 @@ require 'tty-cursor'
 require 'artii'
 require "tty-prompt"
 require 'test-unit'
+require 'io/console'
 require_relative 'compAgainstDevsGameClass'
 require_relative 'compAgainstDevsCardClass'
 require_relative 'compAgainstDevsPlayerClass'
@@ -39,7 +40,9 @@ players = [
     Player.new("Matt")
 ]
 
-a = Artii::Base.new
+def logo
+
+    a = Artii::Base.new
 puts a.asciify("Computers")
 
 a = Artii::Base.new
@@ -48,11 +51,14 @@ puts a.asciify("      Against")
 a = Artii::Base.new
 puts a.asciify("Developers!")
 
+print_with_pause("             
+    
+                Press any key to continue.".colorize(:red))
+                STDIN.getch
 
-# prompt = TTY::Prompt.new
+end
 
-# prompt.ask('What is your name?', default: ENV['USER'])# => What is your name? (piotr
-#todo incorporate waits
+
 
 def waits(time)
     num = time
@@ -62,12 +68,12 @@ end
 
 # waits(2)
 #todo - change time
-def print_with_pause(str, sleep_time = 0.01)
+def print_with_pause(str, sleep_time = 0.07)
   chars = str.chars
   chars.each do |c|
     print c 
     sleep(sleep_time) # if sleep_time is float, unit is second
-        end
+    end
   puts ""
 end
 
@@ -115,18 +121,33 @@ def reset_answer_cards
     ]
 end
 
+logo
 print_with_pause("Welcome, Developer...".colorize(:red))
 waits(1)
 puts `clear`
 print_with_pause("What is your name?".colorize(:red))
 name = gets.chomp
 print_with_pause("Hello #{name}. You are now player 1.".colorize(:red))
-waits(1)
-#todo Use TTY PROMPT to ask yes or no. If yes, display "We'll see about that", if no, display "aiheaw"
+waits(2)
+puts `clear`
 print_with_pause("Do you really think you can beat us?".colorize(:red))
+print_with_pause("(Yes) or (No)".colorize(:red))
+input = gets.chomp
+    if input == "yes"
+        puts `clear`
+        print_with_pause("We'll see about that...".colorize(:red))
+        waits(1)
+        puts `clear`
+    else input == "no"
+        puts `clear`
+        print_with_pause("I don't have much faith in you either...".colorize(:red))
+        waits(1)
+        puts `clear`
+    end
 waits(1)
 puts `clear`
-
+print_with_pause("Lets begin...".colorize(:red))
+waits(2)
 
 game = Game.new(question_cards, players, 7)
 game_alive = true
