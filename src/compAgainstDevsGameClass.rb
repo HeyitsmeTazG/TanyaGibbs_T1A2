@@ -140,10 +140,14 @@ class Game
             end        
         end
         if human_winner
-            print_with_pause("Congratulations! You have beat the computers. ".colorize(:red))
+            a = Artii::Base.new
+            puts a.asciify("Congrats!").colorize(:red)
+            print_with_pause("You have beat the computers. ".colorize(:red))
             waits(3)
         else
-            print_with_pause("The computers have defeated you. Enjoy crying yourself to sleep tonight!".colorize(:red))
+            a = Artii::Base.new
+            puts a.asciify("DEFEAT").colorize(:red)
+            print_with_pause("You are no match for machines!. Enjoy crying yourself to sleep tonight!".colorize(:red))
             waits(3)
         end
         print_with_pause("Press Enter to go back to Main Menu".colorize(:red))
