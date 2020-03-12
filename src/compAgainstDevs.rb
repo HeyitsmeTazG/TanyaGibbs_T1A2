@@ -54,7 +54,7 @@ puts a.asciify("Developers!")
 
 print_with_pause("             
     
-               Press any key to continue.".colorize(:red))
+               Press any key to start.".colorize(:red))
                STDIN.getch
 
 puts `clear`
@@ -128,36 +128,36 @@ def reset_answer_cards
     ]
 end
 
-# logo
-# print_with_pause("Welcome.".colorize(:red))
-# print_with_pause("What is your name?".colorize(:red))
-# name = gets.chomp
-# puts `clear`
-# types("Hello Developer...".colorize(:red))
-# deletes("Developer...")
-# waits(1)
-# types("#{name}. ")
-# waits(1)
-# print_with_pause("You are now player 1.".colorize(:red)) 
-# waits(2)
-# puts `clear`
+logo
+print_with_pause("Welcome.".colorize(:red))
+print_with_pause("What is your name?".colorize(:red))
+name = gets.chomp
+puts `clear`
+types("Hello Developer...".colorize(:red))
+deletes("Developer...")
+waits(1)
+types("#{name}. ")
+waits(1)
+print_with_pause("You are now player 1.".colorize(:red)) 
+waits(2)
+puts `clear`
 
-# print_with_pause("Do you really think you can beat us?".colorize(:red))
-# print_with_pause("(Yes) or (No)".colorize(:red))
-# input = gets.chomp
-#     if input == "yes"
-#         puts `clear`
-#         print_with_pause("We'll see about that...".colorize(:red))
-#         waits(1)
-#         puts `clear`
-#     else input == "no"
-#         puts `clear`
-#         print_with_pause("I don't have much faith in you either...".colorize(:red))
-#         waits(1)
-#         puts `clear`
-#     end
-# waits(1)
-# puts `clear`
+print_with_pause("Do you really think you can beat us?".colorize(:red))
+print_with_pause("(Yes) or (No)".colorize(:red))
+input = gets.chomp
+    if input == "yes"
+        puts `clear`
+        print_with_pause("We'll see about that...".colorize(:red))
+        waits(1)
+        puts `clear`
+    else input == "no"
+        puts `clear`
+        print_with_pause("I don't have much faith in you either...".colorize(:red))
+        waits(1)
+        puts `clear`
+    end
+waits(1)
+puts `clear`
 print_with_pause("Lets begin...".colorize(:red))
 waits(2)
 

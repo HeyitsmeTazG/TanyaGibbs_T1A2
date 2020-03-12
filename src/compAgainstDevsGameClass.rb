@@ -77,7 +77,7 @@ class Game
         
         @answer_cards = game_cards
         deal_hand
-        3.times do
+        7.times do
             show_hand(0)
             space
             question = get_question()
@@ -90,7 +90,7 @@ class Game
             print_with_pause("What answer do you choose?".colorize(:red))
             round_answer = gets.chomp #todo check that answer is between 1 and 7
             space
-            print_with_pause("Your answer combination is...".colorize(:red))
+            print_with_pause("Your answer combination is:".colorize(:red))
             waits(1)
             answer = ""
             card_ID = 0
