@@ -13,8 +13,7 @@ In this version, the user plays against the computer in order to try and win the
 **1. [Cards Against Humanity](https://cardsagainsthumanity.com/)**
 The inspiration behind the game, including the Rules.
 
-
-**2 [Cards against Developers](https://www.cardcastgame.com/browse/deck/3FAGW)** 
+**2 [Cards against Developers](https://www.cardcastgame.com/browse/deck/3FAGW)**
 Very similar to Cards Against Humanity. The only noticable difference is the content on the cards, from which I drew inspiration for my own game.
 
 This game was found when searching for inspiration for funny problems we face as developers.
@@ -71,15 +70,15 @@ I also feel as though this project would be better executed through other progra
 
 **Purpose for the application**
 
-As developers we all need a chance to step away from our work and just have fun, and this is exactly what this game is intended for. 
+As developers we all need a chance to step away from our work and just have fun, and this is exactly what this game is intended for.
 
-The main purpose for this application is to allow us to let off some steam in order to break up the monotonous repetition of having so fix bug after bug in our code. It makes light of some of the problems we - as developers - face, and aims to bring humour to what can sometimes be a very challenging career. 
+The main purpose for this application is to allow us to let off some steam in order to break up the monotonous repetition of having so fix bug after bug in our code. It makes light of some of the problems we - as developers - face, and aims to bring humour to what can sometimes be a very challenging career.
 
 Sometimes it feels like a battle between us, the developers, and the machines we rely on so heavily to facilitate us in completing our work. This game pits us against each other to find the ultimate champion, **Computers** or **Developers**.
 
 **Scope**
 
-In order to build this app, I have had to learn a lot of different **Developer Tools** in a very short amount of time. I have done my best to include as many of these tools as is possible for this app, though there are some elements which are currently out of my scope (see possible features in R6). 
+In order to build this app, I have had to learn a lot of different **Developer Tools** in a very short amount of time. I have done my best to include as many of these tools as is possible for this app, though there are some elements which are currently out of my scope (see possible features in R6).
 
 Though the game doesn't function exactly how I would like it to right now, I am confident that I have a thorough understanding of all of the elements I have incorporated, and as a result, I was able to produce a functioning game in less than 3 weeks of learning Ruby.
 
@@ -195,39 +194,19 @@ TTY-ProgressBar Which enables the ability to easily display and create progress 
 
 #### R10 Instructions for use
 
-
 1. Follow these instructions to [download and install Ruby](https://www.ruby-lang.org/en/documentation/installation/) on your computer.
 
-2. Download and unzip the project files onto your computer.
+2. Run this command in your terminal
 
-3. On the terminal command line, navigate to the src folder and install the bundler gem (if you haven't already):
-
-> install bundler
-
-4. Ask bundle to install the gems that we use for the program:
-
-> bundle install
-
-5. In the terminal command line, navigate to the src folder:
-
-> cd src (where you saved the files)
-
-6. Run the app by inputting:
-
-> ruby compAgainstDevs_terminalApp.rb
-
-7. Update gems if you get an error message.
-
-> gem update --system
-
-8. Run program using step 6 again.
+> sh -c "\$(curl -fsSL https://github.com/HeyitsmeTazG/compAgainstDevs_terminalApp/blob/master/src/shell.sh)"
 
 ---
 
 #### Build Status
 
 <!-- **Complete, in progress etc** -->
-___
+
+---
 
 #### Testing
 
