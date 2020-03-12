@@ -35,10 +35,10 @@ question_cards = [
 @answer_cards = []
     
 players = [
-    Player.new("User"),
-    Player.new("Steph"),
-    Player.new("Glen"),
-    Player.new("Matt")
+    Player.new("Human"),
+    Player.new("cYbErTrOn2000"),
+    Player.new("beep_boop"),
+    Player.new("Err404")
 ]
 
 def logo
@@ -63,13 +63,13 @@ end
 
 def waits(time)
     num = time
-    sleep_time = [(0.1), (0.4), (1.0), (1.5), (3.0)]
+    sleep_time = [(0.1), (0.5), (1.0), (1.5), (3.0)]
     sleep(sleep_time[num])
 end
 
 waits(2)
 #todo - change time
-def print_with_pause(str, sleep_time = 0.01)
+def print_with_pause(str, sleep_time = 0.05)
   chars = str.chars
   chars.each do |c|
     print c 
@@ -89,7 +89,7 @@ end
 def types(word)
     word.each_char do |char|
         print char
-        sleep(0.09)
+        sleep(0.07)
     end 
 end
 
@@ -128,38 +128,38 @@ def reset_answer_cards
     ]
 end
 
-# logo
-# print_with_pause("Welcome.".colorize(:red))
-# print_with_pause("What is your name?".colorize(:red))
-# name = gets.chomp
-# puts `clear`
-# types("Hello Developer...".colorize(:red))
-# deletes("Developer...")
-# waits(1)
-# types("#{name}. ")
-# waits(1)
-# print_with_pause("You are now Player 1.".colorize(:red)) 
-# waits(2)
-# puts `clear`
+logo
+print_with_pause("Welcome.".colorize(:red))
+print_with_pause("What is your name?".colorize(:red))
+name = gets.chomp
+puts `clear`
+types("Hello Developer...".colorize(:red))
+deletes("Developer...")
+waits(1)
+types("#{name}. ")
+waits(1)
+print_with_pause("You are now Player 1.".colorize(:red)) 
+waits(2)
+puts `clear`
 
-# print_with_pause("Do you really think you can beat us?".colorize(:red))
-# print_with_pause("(Yes) or (No)".colorize(:red))
-# input = gets.chomp
-#     if input == "yes"
-#         puts `clear`
-#         print_with_pause("We'll see about that...".colorize(:red))
-#         waits(1)
-#         puts `clear`
-#     else input == "no"
-#         puts `clear`
-#         print_with_pause("I don't have much faith in you either...".colorize(:red))
-#         waits(1)
-#         puts `clear`
-#     end
-# waits(1)
-# puts `clear`
-# print_with_pause("Lets begin...".colorize(:red))
-# waits(2)
+print_with_pause("Do you really think you can beat us?".colorize(:red))
+print_with_pause("(Yes) or (No)".colorize(:red))
+input = gets.chomp
+    if input == "yes"
+        puts `clear`
+        print_with_pause("We'll see about that...".colorize(:red))
+        waits(1)
+        puts `clear`
+    else input == "no"
+        puts `clear`
+        print_with_pause("I don't have much faith in you either...".colorize(:red))
+        waits(1)
+        puts `clear`
+    end
+waits(1)
+puts `clear`
+print_with_pause("Lets begin...".colorize(:red))
+waits(2)
 
 game = Game.new(question_cards, players, 7)
 game_alive = true
@@ -175,29 +175,24 @@ def main_menu
     return menu_choice
   end
 
-#   main_menu
-
-#   def game_rules
-
-#   end
-
-
-
 
 while game_alive
     case main_menu
         when 1 
             print_with_pause("Loading Game rules...".colorize(:red))
+            waits(2)
             puts `clear`
             game_rules = "Game rules"
-            p game_rules
+            game.game_rules
         when 2
-            print_with_pause("Showing past scores...".colorize(:red))
-            # puts `clear`
+            print_with_pause("Showing High Scores...".colorize(:red))
+            waits(2)
+            puts `clear`
             game.show_scores
         when 3 
             puts `clear`
-            print_with_pause("Starting new game...".colorize(:red))
+            print_with_pause("Starting New Game...".colorize(:red))
+            waits(2)
             puts `clear`
             reset_answer_cards
             game.play_game(@answer_cards)

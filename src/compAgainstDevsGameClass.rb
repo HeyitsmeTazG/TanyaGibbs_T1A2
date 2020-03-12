@@ -39,7 +39,7 @@ class Game
         return q_card.value
     end
 
-    # This method is to show the cards in a players hand. If the card ID (number of cards player has) is less than the number of cards that should be allocated, another card is dealt. This loops around for each of the players until they have the right amount of cards as indicated by the hand_size argument.
+    # TShow the cards in a players hand. If the card ID (number of cards player has) is less than the number of cards that should be allocated, another card is dealt. This loops around for each of the players until they have the right amount of cards as indicated by the hand_size argument.
     # Once the hand size is met, the loop breaks.
     def show_hand(player_ID)
         card_ID = 0
@@ -82,7 +82,8 @@ class Game
         
         @answer_cards = game_cards
         deal_hand
-        7.times do
+        loop_count = 0
+        3.times do
             show_hand(0)
             space
             question = get_question()
@@ -113,36 +114,59 @@ class Game
             puts question
             space
             waits(3)
-            print_with_pause("Are you ready for the next round?".colorize(:red))
-            space
-            print_with_pause("Press Enter".colorize(:red))
-            gets.chomp
-            puts `clear`
+            loop_count = loop_count + 1
+            if loop_count < 3
+                print_with_pause("Are you ready for the next round?".colorize(:red))
+                space
+                print_with_pause("Press Enter".colorize(:red))
+                gets.chomp
+                puts `clear`
+            end
 
         
             x = rand(@players.count)
             @players[x].score += 10 
             
         end
+        show_winner
     end
 
+    # Calculating whether the human player or one of the computer players has won.
+    def show_winner
+        human_winner = true
+        for pl in 1..3 do
+            if @players[pl].score > @players[0].score
+                human_winner = false    
+            end        
+        end
+        if human_winner
+            print_with_pause("Congratulations! You have beat the computers. ".colorize(:red))
+            waits(3)
+        else
+            print_with_pause("The computers have defeated you. Enjoy crying yourself to sleep tonight!".colorize(:red))
+            waits(3)
+        end
+        print_with_pause("Press Enter to go back to Main Menu".colorize(:red))
+        gets.chomp
+        puts `clear`
+    end
+
+    def game_rules
+        puts "Computers Against Developers is based on everyone's favourite game, Cards Against Humanity. \n \nRULES: \nThe Code Master (the computer) deals 7 cards to each player. \n \nThe Code Master then draws a question card, and each player (both human and computer) submits one of their answer cards. \n \nThe Code Master then chooses a winner for the round, and 10 points are allocated to the winning player. \n \nAfter all rounds have been executed, the total scores are calculated, and the game ends.\n".colorize(:white)
+        space
+        waits(3)
+        print_with_pause("Press Enter to go back to Main Menu".colorize(:red))
+        gets.chomp
+        puts `clear`
+    end
     def show_scores
         for i in 0..3 do
             puts @players[i].name + " " + @players[i].score.to_s
         end
-    # player loop number.name = player loop number.score
+        space
+        waits(3)
+        print_with_pause("Press Enter to go back to Main Menu".colorize(:red))
+        gets.chomp
+        puts `clear`
     end
-        #todo create new method called play_round
-        # in play_game, we have a loop of hand_size. in each loop we call play_round
-
-    # def start
-    #     # Deal hand
-    #     deal_hand(@hand_size, @players)
-
-    #     # Keep playing until there is winner
-    #     play_round()
-
-    #     # Once there is a winner, we exit. 
-    # end
-
 end
