@@ -9,7 +9,7 @@ require_relative 'compAgainstDevsCardClass'
 require_relative 'compAgainstDevsPlayerClass'
 
 @prompt = TTY::Prompt.new
-# require_relative 'compAgainstDevsTest'
+
 
 question_cards = [
     Card.new("After ten years working as a developer I am addicted to _____."),

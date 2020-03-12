@@ -66,7 +66,7 @@ end
 
 
 
-game = Game.new(question_cards, answer_cards, players, 2)
+# game = Game.new(question_cards, answer_cards, players, 2)
 # game.start()
 
 
