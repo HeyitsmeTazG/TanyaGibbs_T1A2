@@ -42,15 +42,21 @@ players = [
 ]
 
 def logo
+    if ARGV[0] == "h"
+        easter_egg = "Hackers!"
+        ARGV.clear
+    else
+        easter_egg = "Developers!"
+    end
 
     a = Artii::Base.new
-puts a.asciify("Computers")
+    puts a.asciify("Computers")
 
-a = Artii::Base.new
-puts a.asciify("      Against")
+    a = Artii::Base.new
+    puts a.asciify("      Against")
 
-a = Artii::Base.new
-puts a.asciify("Developers!")
+    a = Artii::Base.new
+    puts a.asciify(     easter_egg)
 
 print_with_pause("             
     
@@ -126,6 +132,7 @@ def reset_answer_cards
         Card.new("Code without comments")
     ]
 end
+
 
 logo
 print_with_pause("Welcome.".colorize(:red))
