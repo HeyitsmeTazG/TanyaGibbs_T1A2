@@ -49,8 +49,15 @@ def logo
         easter_egg = "Developers!"
     end
 
+    if ARGV[0] == "f"
+        easter_egg1 = "The Universe"
+        ARGV.clear
+    else
+        easter_egg1 = "Computers"
+    end
+
     a = Artii::Base.new
-    puts a.asciify("Computers")
+    puts a.asciify(easter_egg1)
 
     a = Artii::Base.new
     puts a.asciify("      Against")
