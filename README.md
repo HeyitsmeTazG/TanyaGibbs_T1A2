@@ -1,5 +1,7 @@
 ## COMPUTERS AGAINST DEVELOPERS
 
+![WelcomeScreen](https://raw.githubusercontent.com/HeyitsmeTazG/compAgainstDevs_terminalApp/master/docs/CompAgainstDevsWelcomeScreen.png "Welcome Screen")
+
 #### Outline
 
 **Computers against Developers** is a terminal app inspired by the game "Cards against Humanity". This is built using Ruby to explore **object-oriented programming**, as well as **modularisation**, and **DRY scripting** principles.
@@ -154,6 +156,8 @@ Some of the features I would have liked to include are:
 
 ---
 
+#### Code Structure
+
 #### R8, R9 Design and Implementation
 
 Computers Against Developers was created in three days as part of Terminal Application using Ruby Assignment at Coder Academy.
@@ -169,41 +173,24 @@ After completing the Flowchart, I had a better understanding of how to structure
 Understanding the flow of the game made writing the code itself much easier, and as a result I was able to minimise the amount of time spent in utter confusion trying to fix errors.
 
 #### Flowchart of story pathways and functions:
-#todo
----
 
-#### Code Structure
-#todo
----
+![Flowchart](https://raw.githubusercontent.com/HeyitsmeTazG/compAgainstDevs_terminalApp/master/docs/flowDiagramTerminalApp.png "Flowchart")
 
 #### Gems used
 
-Computers Against Developers makes use of a number of Gems to improve the user experience and enhance the overall funcitonality of the game.
+Computers Against Developers makes use of a number of Gems to improve the user experience and enhance the overall funcitonality of the game. All of these gems are stored in the Gemfile.
 
-#todo
+[colorize](https://rdoc.info/github/fazibear/colorize) was used to change the colours of text output to the terminal.
 
-[Colorize]()
-gem "colorize", "~> 0.8.1"
+[tty-cursor](https://github.com/piotrmurach/tty-cursor#1-usage) was used to allow the computer to easily delete text and replace it with new words.
 
-gem 'tty-cursor'
+[artii](https://rubydoc.info/gems/artii/frames) was used for the welcome screen as well as each of the end screens.
 
-gem 'artii', "~> 2.1"
+[tty-prompt](https://www.rubydoc.info/gems/tty-prompt) was used to create the menu display and pass methods through.
 
-gem  "tty-prompt"
+[test-unit](https://www.rubydoc.info/gems/test-unit/3.1.8) Test-Unit Was used to assist in Test Driven Development.
 
-gem 'test-unit'
-
-gem 'io/console'
-
-<!--
-Bundler Is used to handle all Gem installations. To provide an easy setup for the user as all version and dependencies are controlled through it and saved in the gem & gem lock files.
-Test-Unit Was used to assist in Test Driven Development. -->
-
-**Colorize** Enables the use of coloured outputs in the Terminal.
-
-<!--
-TTY-Cursor To enable the computer to easily navigate the console and delete lines.
-TTY-ProgressBar Which enables the ability to easily display and create progress bars. (The file transfers) -->
+[io/console](https://github.com/ruby/io-console) allows the user to press any key to start the application on the welcome screen.
 
 ---
 
@@ -219,29 +206,35 @@ TTY-ProgressBar Which enables the ability to easily display and create progress 
 
 #### Build Status
 
-**MVP completed**
-#todo
+The Minimum Viable Product has been completed, and runs without any errors.
+
+I would like to continue to add features to this project outside of the assignment in order to get this application to where I want it to be.
 
 ---
 
 #### Testing
-#todo
 
-With the help of the unit-test Gem, I built 4 tests, to ensure the app ran correctly.
+I used the test-unit gem to assist with the TDD, and created 4 tests to ensure that my app was running correctly.
+
+I tested to see if the arrays were working correctly, by adding a new player to the players array, as well as testing assertions.
 
 ---
 
 #### Project timeline and Planning Process
-#todo
 
-<!-- (Trello) -->
+I used Trello to manage the production timeline of building this app. You can view the entire board by clicking [here](https://trello.com/b/xbakAUis/cards-against-developers-terminal-app), or alternatively have a look at the screenshots shown below.
 
-<!-- **Reword this:**
+Using the Trello board allowed me to keep track of every task I needed to complete, as well as organise the process better.
 
-The project timeline was managed through Trello and updated as I progressed. My Trello board listed all tasks that needed to be completed, features, gems, user stories, bugs etc. -->
+![TrelloBoard](https://raw.githubusercontent.com/HeyitsmeTazG/compAgainstDevs_terminalApp/master/docs/TrelloBoard1.png "TrelloBoard")
+![TrelloBoard](https://raw.githubusercontent.com/HeyitsmeTazG/compAgainstDevs_terminalApp/master/docs/TrelloBoard.png "TrelloBoard")
 
 ---
 
 #### Copyright, ethical and social issues
-#todo
+
+As this game is inpired by Cards Against Humanity, and uses examples from Cards Against Developers, I give credit to both parties.
+
+This app was built for assessment purposes, and is free for anyone to play. My intention was to create an app inspired by games that I enjoy, and not to completely copy the gameplay of these games.
+
 ---
