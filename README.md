@@ -154,6 +154,11 @@ Some of the features I would have liked to include are:
 
 **8.** The game ends and the Main Menu re-appears, allowing the user to select one of the options (View Rules, View Scores, Start New Game, or Exit).
 
+**9.Command line Arguments**
+I added a command line argument that changes the welcome screen to say "Computers Against Hackers" instead of "Computers Against Developers".
+
+If you run the app with **h** added to the end, it shows you this little easter egg!
+
 ---
 
 #### Code Structure
