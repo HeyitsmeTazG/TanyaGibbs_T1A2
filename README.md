@@ -10,7 +10,7 @@ In this version, the user plays against the computer in order to try and win the
 
 ---
 
-#### R3 Referenced Sources
+#### Referenced Sources
 
 **1. [Cards Against Humanity](https://cardsagainsthumanity.com/)**
 The inspiration behind the game, including the Rules.
@@ -22,7 +22,7 @@ This game was found when searching for inspiration for funny problems we face as
 
 ---
 
-#### R4 Source Control Repository
+#### Source Control Repository
 
 https://github.com/HeyitsmeTazG/compAgainstDevs_terminalApp
 
@@ -68,7 +68,7 @@ I also feel as though this project would be better executed through other progra
 
 ---
 
-#### R5 Purpose & Scope
+#### Purpose & Scope
 
 **Purpose for the application**
 
@@ -86,7 +86,7 @@ Though the game doesn't function exactly how I would like it to right now, I am 
 
 ---
 
-#### R6 Features
+#### Features
 
 **Current Features**
 
@@ -136,7 +136,7 @@ Some of the features I would have liked to include are:
 
 ---
 
-#### R7 Outline of User Interaction
+#### Outline of User Interaction
 
 **1.** Player is presented with a Welcome screen and menu of options.
 
@@ -158,7 +158,7 @@ Some of the features I would have liked to include are:
 
 #### Code Structure
 
-#### R8, R9 Design and Implementation
+#### Design and Implementation
 
 Computers Against Developers was created in three days as part of Terminal Application using Ruby Assignment at Coder Academy.
 
@@ -194,7 +194,7 @@ Computers Against Developers makes use of a number of Gems to improve the user e
 
 ---
 
-#### R10 Instructions for use
+#### Instructions for use
 
 1. Follow these instructions to [download and install Ruby](https://www.ruby-lang.org/en/documentation/installation/) on your computer.
 
@@ -217,6 +217,7 @@ I would like to continue to add features to this project outside of the assignme
 I used the test-unit gem to assist with the TDD, and created 4 tests to ensure that my app was running correctly.
 
 I tested to see if the arrays were working correctly, by adding a new player to the players array, as well as testing assertions.
+![TrelloBoard](https://raw.githubusercontent.com/HeyitsmeTazG/compAgainstDevs_terminalApp/master/docs/UnitTests.png "TrelloBoard")
 
 ---
 
