@@ -68,7 +68,7 @@ def waits(time)
 end
 
 waits(2)
-def print_with_pause(str, sleep_time = 0.05)
+def print_with_pause(str, sleep_time = 0.09)
   chars = str.chars
   chars.each do |c|
     print c 
