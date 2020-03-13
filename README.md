@@ -157,8 +157,9 @@ Some of the features I would have liked to include are:
 **9.Command line Arguments**
 I added a command line argument that changes the welcome screen to say "Computers Against Hackers" instead of "Computers Against Developers".
 
-If you run the app with **h** added to the end, it shows you this little easter egg!
+- If you run the app with **h** added to the end, it shows you this little easter egg!
 
+- If you run the app with **f** added to the end, it displays another easter egg!
 ---
 
 #### Code Structure
